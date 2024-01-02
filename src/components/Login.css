@@ -1,0 +1,49 @@
+section.main {
+    @apply h-screen w-full bg-cover flex items-center;
+    background-image: url('../assets/img/login-bg.jpg');
+}
+
+main.login {
+    @apply flex justify-center items-center absolute w-3/12 h-[560px] left-[8%] rounded-3xl backdrop-blur-lg;
+    background-image: linear-gradient(339.69deg, rgba(0, 0, 0, 0.7) 0%, rgba(26, 36, 48, 0.6) 100%);
+}
+
+.login-text {
+    @apply absolute top-[22%];
+}
+
+.title {
+    @apply text-[30px] text-white font-semibold;
+}
+
+.subtitle {
+    @apply text-sm mt-1 text-white font-light;
+}
+
+.logo {
+    @apply w-40 absolute top-8 left-8;
+}
+
+form {
+    @apply w-10/12;
+}
+
+.input {
+    @apply border-solid border border-[#7086C1]/30 h-12 w-full flex rounded mb-3 pl-3 bg-[#7086C1]/10 font-light text-sm text-white;
+}
+
+.label {
+    @apply mt-5 mb-5;
+}
+
+.remember-me {
+    @apply text-white mb-12 font-light text-sm;
+}
+
+.forgot {
+    @apply text-[#5E70A1] hover:text-white hover:cursor-pointer font-light text-[12px] inline float-right mr-1 mt-1;
+}
+
+.btn-login {
+    @apply h-11 px-8 bg-[#C7496A] text-white rounded block hover:bg-[#C7496A]/80;
+}
