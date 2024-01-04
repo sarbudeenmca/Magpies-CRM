@@ -1,0 +1,15 @@
+.layout {
+    @apply flex flex-row;
+}
+
+.lefthalf {
+    @apply basis-1/6 min-h-screen w-full bg-darkd3;
+}
+
+.righthalf {
+    @apply basis-5/6 min-h-screen w-full bg-darkd5;
+}
+
+.topbar{
+    @apply w-full h-10 border-b border-darkd2;
+}
