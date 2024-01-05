@@ -1,7 +1,7 @@
 import './App.css'
-import { Route, Routes } from "react-router-dom";
-import Layout from "./components/Layout";
-import Login from "./components/Login";
+import { Route, Routes } from "react-router-dom"
+import Layout from "./components/Layout"
+import Login from "./components/Login"
 import Dashboard from './components/Dashboard'
 import Leads from './components/Leads'
 import Accounts from './components/Accounts'
@@ -11,7 +11,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={
+        <Route path="/" element={
           <Layout>
             <Routes>
               <Route path='/dashboard' element={<Dashboard />}></Route>

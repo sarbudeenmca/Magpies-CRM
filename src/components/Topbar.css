@@ -1,0 +1,3 @@
+.bars-icon{
+    @apply h-full aspect-square text-accent flex items-center justify-center hover:text-primaryd1 cursor-pointer;
+}

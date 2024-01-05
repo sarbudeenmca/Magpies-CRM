@@ -3,5 +3,13 @@
 }
 
 .sidebar-navs li{
-    @apply py-2 my-1 rounded-md pl-10 text-accent/70 font-light text-sm hover:bg-darkd5 hover:text-primary hover:cursor-pointer;
+    @apply py-2 my-1 rounded-md pl-6 text-white/80 font-light text-sm hover:bg-darkd5 hover:text-primary hover:cursor-pointer;
+}
+
+.sidebar-navs li.active{
+    @apply text-primary;
+}
+
+.sidebar-navs li .navicon{
+    @apply pr-2 text-accent w-5;
 }

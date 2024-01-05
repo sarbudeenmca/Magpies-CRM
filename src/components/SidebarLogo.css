@@ -1,3 +1,7 @@
+.logo-container{
+    @apply w-full mx-auto pt-[10px] pb-[11px]  px-10 mb-6 border-b border-accentd4/70 ;
+}
+
 .sidebar-logo {
-    @apply w-3/5 mx-auto pt-3 mb-6;
+    @apply w-4/5 mx-auto ;
 }

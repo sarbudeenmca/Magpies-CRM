@@ -45,5 +45,5 @@ form {
 }
 
 .btn-login {
-    @apply h-11 px-8 bg-[#C7496A] text-white rounded block hover:bg-[#C7496A]/80;
+    @apply h-9 px-7 bg-[#C7496A] text-white rounded block hover:bg-[#C7496A]/80 text-sm font-light;
 }

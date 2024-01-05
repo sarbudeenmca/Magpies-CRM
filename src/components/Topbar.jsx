@@ -1,8 +1,16 @@
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import './Topbar.css'
+
 import React from 'react'
 
-const Topbar = () => {
+const Topbar = ({ toggleSidebar }) => {
   return (
-    <div>Topbar</div>
+    <>
+      <div className='bars-icon' onClick={toggleSidebar}>
+        <FontAwesomeIcon icon={faBars} />
+      </div>
+    </>
   )
 }
 

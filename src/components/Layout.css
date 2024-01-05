@@ -2,14 +2,14 @@
     @apply flex flex-row;
 }
 
-.lefthalf {
-    @apply basis-1/6 min-h-screen w-full bg-darkd3;
+.sidebar {
+    @apply min-h-screen bg-darkd3 transition-all transform duration-1000;
 }
 
-.righthalf {
-    @apply basis-5/6 min-h-screen w-full bg-darkd5;
+.rightside {
+    @apply min-h-screen bg-darkd5 transition-all transform duration-1000;
 }
 
-.topbar{
+.topbar {
     @apply w-full h-10 border-b border-darkd2;
 }
