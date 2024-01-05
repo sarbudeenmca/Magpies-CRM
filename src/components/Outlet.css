@@ -1,0 +1,3 @@
+h1.main-title {
+    @apply text-accent text-2xl font-extralight;
+}

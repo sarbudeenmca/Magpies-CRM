@@ -3,13 +3,21 @@
 }
 
 .sidebar {
-    @apply min-h-screen bg-darkd3 transition-all transform duration-1000;
+    @apply min-h-screen bg-darkd3 transition-all transform duration-700;
 }
 
 .rightside {
-    @apply min-h-screen bg-darkd5 transition-all transform duration-1000;
+    @apply min-h-screen bg-darkd5 transition-all transform duration-700;
 }
 
 .topbar {
-    @apply w-full h-10 border-b border-darkd2;
+    @apply w-full h-12 border-b border-darkd2 flex flex-row;
+}
+
+.outlet {
+    @apply min-h-96 mx-10 mt-5;
+}
+
+h1.main-title {
+    @apply text-accent text-2xl font-extralight;
 }

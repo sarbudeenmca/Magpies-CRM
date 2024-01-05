@@ -1,3 +1,15 @@
-.bars-icon{
+.bars-icon {
     @apply h-full aspect-square text-accent flex items-center justify-center hover:text-primaryd1 cursor-pointer;
+}
+
+.profile-bar {
+    @apply flex flex-row items-center h-full ml-auto;
+}
+
+.profile-bar p {
+    @apply inline mx-2 text-accentd2 text-sm;
+}
+
+.profile-icon {
+    @apply inline mr-6 text-accentd2 text-sm;
 }

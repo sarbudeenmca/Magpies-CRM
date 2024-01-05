@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
 import Topbar from './Topbar'
 import Sidebar from './Sidebar'
-import Outlet from './Outlet'
+// import Outlet from './Outlet'
 import './Layout.css'
+import { useOutlet } from 'react-router-dom'
 
 const Layout = () => {
+
+  const outlet = useOutlet();
+
+  console.log('Layout component rendered');
 
   const [isSidebarOpen, setSidebarOpen] = useState(true);
 
@@ -22,7 +27,7 @@ const Layout = () => {
           <Topbar toggleSidebar={toggleSidebar} />
         </section>
         <section className="outlet">
-          <Outlet />
+          {outlet}
         </section>
       </section>
     </section>

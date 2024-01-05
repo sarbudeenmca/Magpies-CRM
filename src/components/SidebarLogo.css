@@ -1,7 +1,7 @@
 .logo-container{
-    @apply w-full mx-auto pt-[10px] pb-[11px]  px-10 mb-6 border-b border-accentd4/70 ;
+    @apply w-full mx-auto h-12 border-b border-accentd4/70 flex items-center mb-4;
 }
 
 .sidebar-logo {
-    @apply w-4/5 mx-auto ;
+    @apply w-3/5 mx-auto;
 }
