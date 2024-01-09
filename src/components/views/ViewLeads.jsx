@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
 import { faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
+import FilterLeads from './FilterLeads';
 
 const generateRandomData = () => {
   // Function to generate random data
@@ -51,42 +52,48 @@ const ViewLeads = () => {
   const tableData = generateRandomData();
 
   return (
-    <table className='datatable'>
-      <thead>
-        <tr>
-          <th>Lead Name</th>
-          <th>Company</th>
-          <th>Country</th>
-          <th>Status</th>
-          <th className='w-[85px]'>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        {tableData.map((row, index) => {
-          const statusClass = row.status ? row.status.toLowerCase() : '';
-          return (
-            <tr key={index}>
-              <td>
-                {row.leadName}
-                <br />
-                <a href={`tel:${row.telephone}`}>{row.telephone}</a>
-              </td>
-              <td>
-                {row.company}
-                <br />
-                <a href={`mailto:${row.email}`}>{row.email}</a>
-              </td>
-              <td>{row.country}</td>
-              <td className={statusClass}><label>{row.status}</label></td>
-              <td className='w-[85px]'>
-                <button className='edit-icon'><FontAwesomeIcon icon={faPencilAlt} /></button>
-                <button className='trash-icon'><FontAwesomeIcon icon={faTrash} /></button>
-              </td>
-            </tr>
-          )
-        })}
-      </tbody>
-    </table>
+
+    <>
+      <FilterLeads />
+      <table className='datatable'>
+        <thead>
+          <tr>
+            <th><input type='checkbox' className='check' /> </th>
+            <th>Lead Name</th>
+            <th>Company</th>
+            <th>Country</th>
+            <th>Status</th>
+            <th className='w-[85px]'>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tableData.map((row, index) => {
+            const statusClass = row.status ? row.status.toLowerCase() : '';
+            return (
+              <tr key={index}>
+                <td><input type='checkbox' className='check' /></td>
+                <td>
+                  {row.leadName}
+                  <br />
+                  <a href={`tel:${row.telephone}`}>{row.telephone}</a>
+                </td>
+                <td>
+                  {row.company}
+                  <br />
+                  <a href={`mailto:${row.email}`}>{row.email}</a>
+                </td>
+                <td>{row.country}</td>
+                <td className={statusClass}><label>{row.status}</label></td>
+                <td className='w-[85px]'>
+                  <button className='edit-icon'><FontAwesomeIcon icon={faPencilAlt} /></button>
+                  <button className='trash-icon'><FontAwesomeIcon icon={faTrash} /></button>
+                </td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
+    </>
   );
 }
 

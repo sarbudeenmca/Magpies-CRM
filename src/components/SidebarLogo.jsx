@@ -1,6 +1,5 @@
 import React from 'react'
 import Logo from '../assets/img/logo-w.png'
-import './SidebarLogo.css'
 import { useNavigate } from 'react-router-dom'
 const SidebarLogo = () => {
     const navigate = useNavigate();

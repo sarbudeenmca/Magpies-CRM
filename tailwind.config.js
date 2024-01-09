@@ -28,11 +28,24 @@ module.exports = {
         darkd4: '#101625',
         darkd5: '#0D121E',
         darkd6: '#0A0E18',
+        darkd7: '#080B13',
+        danger: '#CD3C4E',
+        dangerd1: '#BA3747',
+        dangerd2: '#A73140',
+        success: '#20C89B',
+        successd1: '#1DB48B',
+        successd2: '#1AA27D',
+        info: '#00C6EC',
+        infod1: '#00B4D7',
+        infod2: '#00A2C1',
+        warning: '#FFE186',
+        warningd1: '#F5CD7A',
+        warningd2: '#DCB86E',
       },
     },
   },
   plugins: [
-    
+
   ],
 }
 

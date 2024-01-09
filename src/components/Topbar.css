@@ -13,3 +13,16 @@
 .profile-icon {
     @apply inline mr-6 text-accentd2 text-sm;
 }
+
+.profile-avatar{
+    @apply w-auto h-full p-[6px];
+}
+
+.avatar-img{
+    @apply rounded-full w-auto h-full border border-accent/70;
+}
+
+.profile-name{
+    @apply text-secondary; 
+}
+

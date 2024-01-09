@@ -5,7 +5,8 @@ const Leads = () => {
   return (
     <>
       <div className='title-header'>
-        <h1 className='main-title'>Leads Form</h1>
+        <h1 className='main-title'>Leads</h1>
+        <button className='btn-add-new'>Add New</button>
       </div>
       <ViewLeads />
     </>

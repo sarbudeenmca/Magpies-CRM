@@ -1,5 +1,4 @@
 import React from 'react'
-import './ProfileIcon.css'
 import avatar from '../assets/img/avatar.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'

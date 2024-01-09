@@ -18,3 +18,11 @@
 .sidebar-navs li .navicon {
     @apply pr-2 text-accent w-5;
 }
+
+.logo-container{
+    @apply w-full mx-auto h-12 border-b border-accentd4/70 flex items-center mb-4 cursor-pointer;
+}
+
+.sidebar-logo {
+    @apply w-3/5 mx-auto;
+}

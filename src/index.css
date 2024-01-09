@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
     @apply bg-darkd5;
+}
+
+
+::-webkit-scrollbar-track {
+    @apply bg-darkd7;
+}
+
+::-webkit-scrollbar {
+    @apply w-1;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply border-0 bg-darkd3 hover:bg-darkd1;
 }

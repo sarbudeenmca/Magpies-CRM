@@ -28,13 +28,16 @@
 }
 
 .title-header {
-    @apply mb-6;
+    @apply mb-6 flex items-center flex justify-between;
 }
 
 h1.main-title {
-    @apply text-accent text-2xl font-extralight ml-3;
+    @apply text-accent text-2xl font-extralight ml-3 inline-block;
 }
 
+.btn-add-new{
+    @apply h-8 bg-primaryd2 mr-4 rounded px-4 text-white text-[13px] font-light hover:bg-primaryd3;
+}
 
 /*===== Table =====*/
 table.datatable {
@@ -53,8 +56,16 @@ table.datatable td {
     @apply font-light text-[13px] text-left text-white whitespace-pre-line py-3;
 }
 
+table.datatable thead tr th{
+    @apply border-b border-darkd2 pb-2;
+}
+
+table.datatable tbody tr:first-child td{
+    @apply pt-6;
+}
+
 table.datatable tbody tr {
-    @apply hover:bg-black/30;
+    @apply hover:bg-darkd7;
 }
 
 table.datatable tbody td:first-child {
@@ -70,17 +81,44 @@ table.datatable td a {
 }
 
 table.datatable td.active label {
-    @apply bg-green-600 block py-1 rounded-full uppercase font-normal w-20 text-center cursor-pointer hover:bg-green-700;
+    @apply border border-success text-successd1 block pt-1 pb-[3px] rounded-full uppercase font-normal w-20 text-[12px] text-center cursor-pointer hover:bg-successd2 hover:text-white;
 }
 
 table.datatable td.inactive label {
-    @apply text-accentd1 block py-1 rounded-full uppercase font-normal w-20 text-center border border-accentd1 cursor-pointer;
+    @apply text-accentd1 block pt-1 pb-[3px] rounded-full uppercase font-normal w-20 text-[12px] text-center border border-accentd1 cursor-pointer hover:text-white hover:bg-accentd4 hover:border-accentd4;
 }
 
 table.datatable td button.edit-icon {
-    @apply w-8 aspect-square rounded-full bg-accentd1/80 hover:bg-accentd1;
+    @apply w-8 aspect-square rounded-full bg-accentd1 hover:bg-accentd3 pt-[3px];
 }
 
 table.datatable td button.trash-icon {
-    @apply w-8 aspect-square rounded-full bg-red-600/80 ml-2 hover:bg-red-600;
+    @apply w-8 aspect-square rounded-full bg-danger ml-2 hover:bg-dangerd2 pt-[3px];
+}
+
+
+table.datatable input.check {
+    @apply h-5 w-5 mt-2 border-0 bg-accent opacity-10;
+}
+
+/*===== Filters =====*/
+.filters {
+    @apply mb-10 mt-16;
+}
+
+.filters .search {
+    @apply w-3/12 rounded text-sm ml-3 px-4 h-10 bg-transparent border-accentd4 border text-secondaryd1 outline-none focus:border focus:border-accent placeholder:text-white/20 placeholder:font-light;
+}
+
+.filters .page-info {
+    @apply float-end mr-4 text-accentd4 text-sm flex items-center;
+}
+
+.filters .left-icon,
+.filters .right-icon {
+    @apply border border-darkd1 p-2 aspect-square mt-1 mx-1 rounded-sm hover:bg-darkd1 hover:text-white/80 hover:cursor-pointer;
+}
+
+.filters i{
+    @apply not-italic mr-3 mt-1;
 }
