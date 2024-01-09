@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Topbar from './Topbar'
 import Sidebar from './Sidebar'
-// import Outlet from './Outlet'
 import './Layout.css'
 import { useOutlet } from 'react-router-dom'
 

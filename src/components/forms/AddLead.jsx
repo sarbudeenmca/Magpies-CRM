@@ -1,9 +1,11 @@
 import React from 'react'
 
 const AddLead = () => {
-  return (
-    <div>AddLead</div>
-  )
+    return (
+        <>
+            
+        </>
+    )
 }
 
 export default AddLead

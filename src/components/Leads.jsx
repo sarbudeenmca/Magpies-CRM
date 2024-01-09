@@ -1,11 +1,13 @@
 import React from 'react'
-import AddLead from './forms/AddLead';
+import ViewLeads from './views/ViewLeads'
 
 const Leads = () => {
   return (
     <>
-      <h1 className='main-title'>Leads Form</h1>
-      <AddLead />
+      <div className='title-header'>
+        <h1 className='main-title'>Leads Form</h1>
+      </div>
+      <ViewLeads />
     </>
   )
 }

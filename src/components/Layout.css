@@ -1,23 +1,86 @@
+/*===== Layout =====*/
 .layout {
     @apply flex flex-row;
 }
 
+
+/*===== Sidebar =====*/
 .sidebar {
     @apply min-h-screen bg-darkd3 transition-all transform duration-700;
 }
 
+
+/*===== Rightside =====*/
 .rightside {
     @apply min-h-screen bg-darkd5 transition-all transform duration-700;
 }
 
+
+/*===== Topbar =====*/
 .topbar {
     @apply w-full h-12 border-b border-darkd2 flex flex-row;
 }
 
+
+/*===== Outlet =====*/
 .outlet {
     @apply min-h-96 mx-10 mt-5;
 }
 
+.title-header {
+    @apply mb-6;
+}
+
 h1.main-title {
-    @apply text-accent text-2xl font-extralight;
+    @apply text-accent text-2xl font-extralight ml-3;
+}
+
+
+/*===== Table =====*/
+table.datatable {
+    @apply w-full table-auto border-separate border-spacing-0 pb-6 mb-14 border-b border-accentd4/70;
+}
+
+table.datatable th {
+    @apply font-semibold text-[13px] text-left text-accent pb-4;
+}
+
+table.datatable th:first-child {
+    @apply pl-3;
+}
+
+table.datatable td {
+    @apply font-light text-[13px] text-left text-white whitespace-pre-line py-3;
+}
+
+table.datatable tbody tr {
+    @apply hover:bg-black/30;
+}
+
+table.datatable tbody td:first-child {
+    @apply pl-3 rounded-s-md;
+}
+
+table.datatable tbody td:last-child {
+    @apply pr-3 rounded-e-md;
+}
+
+table.datatable td a {
+    @apply text-accent/60 mt-[4px] inline-block hover:text-accent;
+}
+
+table.datatable td.active label {
+    @apply bg-green-600 block py-1 rounded-full uppercase font-normal w-20 text-center cursor-pointer hover:bg-green-700;
+}
+
+table.datatable td.inactive label {
+    @apply text-accentd1 block py-1 rounded-full uppercase font-normal w-20 text-center border border-accentd1 cursor-pointer;
+}
+
+table.datatable td button.edit-icon {
+    @apply w-8 aspect-square rounded-full bg-accentd1/80 hover:bg-accentd1;
+}
+
+table.datatable td button.trash-icon {
+    @apply w-8 aspect-square rounded-full bg-red-600/80 ml-2 hover:bg-red-600;
 }
