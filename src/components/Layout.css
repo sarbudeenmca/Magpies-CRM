@@ -36,7 +36,11 @@ h1.main-title {
 }
 
 .btn-add-new{
-    @apply h-8 bg-primaryd2 mr-4 rounded px-4 text-white text-[13px] font-light hover:bg-primaryd3;
+    @apply h-8 bg-primaryd1 mr-4 rounded px-4 text-white text-[13px] font-light hover:bg-primaryd2;
+}
+
+.btn-add-new span{
+    @apply ml-2;
 }
 
 /*===== Table =====*/
@@ -121,4 +125,25 @@ table.datatable input.check {
 
 .filters i{
     @apply not-italic mr-3 mt-1;
+}
+
+/*===== Form Layout =====*/
+aside.form{
+    @apply w-3/6 absolute top-0 right-0 h-full bg-darkd3 px-12 py-10;
+}
+
+.form .title-header{
+    @apply mb-12;
+}
+
+.form h1.main-title{
+    @apply ml-0 text-xl;
+}
+
+.form .form-close{
+    @apply text-accent aspect-square h-7 text-2xl;
+}
+
+.form-input{
+    @apply rounded text-sm px-4 h-8 bg-transparent border-accentd4 border text-secondaryd1 outline-none focus:border focus:border-accent placeholder:text-white/20 placeholder:font-light;
 }
