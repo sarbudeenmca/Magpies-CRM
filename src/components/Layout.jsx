@@ -28,7 +28,7 @@ const Layout = () => {
           <Topbar toggleSidebar={toggleSidebar} />
         </section>
         <section className="outlet">
-          {React.cloneElement(outlet, { handleAddClick })}
+          {React.cloneElement(outlet, { handleAddClick, isAddNewOpen })}
         </section>
       </section>
       {isAddNewOpen && (
