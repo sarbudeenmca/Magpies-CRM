@@ -4,14 +4,13 @@ import { faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
 import FilterLeads from './FilterLeads';
 
 const generateRandomData = () => {
-  // Function to generate random data
   const randomName = () => {
-    const names = ['Emma Johnson', 'Mohammed Ali', 'Li Wei', 'Ana Rodriguez', 'Amit Patel', 'Yuki Tanaka', 'Alice Williams', 'Carlos Gomez', 'Anna Petrov', 'Rahul Singh', 'Olga Ivanova', 'Khaled Ahmed', 'Sofia Rodriguez', 'Chen Wei', 'Maria Sanchez'];
+    const names = ['Emma Johnson', 'Mohammed Ali', 'Li Wei', 'Ana Rodriguez', 'Amit Patel'];
     return names[Math.floor(Math.random() * names.length)];
   };
 
   const randomCompany = () => {
-    const companies = ['Global Innovations', 'Tech Solutions Ltd.', 'Dragon Enterprises', 'InnovaTech Solutions', 'Future Dynamics', 'TechVision Japan', 'Data Dynamics', 'LatinTech Solutions', 'EastWest Innovations', 'Global Solutions', 'Volga Tech', 'Middle East Dynamics', 'SouthTech Solutions', 'Great Wall Technologies', 'South American Innovations'];
+    const companies = ['Global Innovations', 'Tech Solutions Ltd.', 'Dragon Enterprises', 'InnovaTech Solutions', 'Future Dynamics'];
     return companies[Math.floor(Math.random() * companies.length)];
   };
 
@@ -25,7 +24,7 @@ const generateRandomData = () => {
   };
 
   const randomCountry = () => {
-    const countries = ['United States', 'United Kingdom', 'China', 'Spain', 'India', 'Japan', 'Russia', 'Mexico', 'Egypt', 'Argentina'];
+    const countries = ['United States', 'United Kingdom', 'China', 'Spain', 'India', 'Japan'];
     return countries[Math.floor(Math.random() * countries.length)];
   };
 
@@ -48,7 +47,7 @@ const generateRandomData = () => {
   return data;
 };
 
-const ViewLeads = () => {
+const ViewLeads = React.memo(() => {
   const tableData = generateRandomData();
 
   return (
@@ -95,7 +94,7 @@ const ViewLeads = () => {
       </table>
     </>
   );
-}
+});
 
 
 export default ViewLeads

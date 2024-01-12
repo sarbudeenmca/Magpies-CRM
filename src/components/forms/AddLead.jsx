@@ -2,22 +2,30 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 
-const AddLead = () => {
+const AddLead = ({ isAddNewOpen, handleAddClick }) => {
     return (
-        <aside className='form'>
-            <div className="title-header">
-                <h1 className="main-title">Add New Lead</h1>
-                <button className='form-close'><FontAwesomeIcon icon={faTimes} /></button>
-            </div>
-            <form action="#">
-                <div className="form-container">
-                    <div className="form-fields w-3/6">
-                        <label htmlFor="leadName" className="form-label"></label>
-                        <input type="text" className="form-input" id="leadName" />
-                    </div>
+        <>
+            <aside className={`form ${isAddNewOpen ? '' : 'translate-x-full'}`}>
+                <div className="title-header">
+                    <h1 className="main-title">Add New Lead</h1>
+                    <button className='form-close' onClick={handleAddClick}><FontAwesomeIcon icon={faTimes} /></button>
                 </div>
-            </form>
-        </aside>
+                <form action="#" className='form-container'>
+                    <div className="form-fields">
+                        <input type="text" id="leadName" className="form-input peer" placeholder=" " />
+                        <label htmlFor="leadName" className="form-label">
+                            Lead Name
+                        </label>
+                    </div>
+                    <div className="form-fields">
+                        <input type="text" id="companyName" className="form-input peer" placeholder=" " />
+                        <label htmlFor="companyName" className="form-label">
+                            Company Name
+                        </label>
+                    </div>
+                </form>
+            </aside>
+        </>
     )
 }
 

@@ -7,13 +7,15 @@ import { useOutlet } from 'react-router-dom'
 const Layout = () => {
 
   const outlet = useOutlet();
-
-  console.log('Layout component rendered');
-
+  
   const [isSidebarOpen, setSidebarOpen] = useState(true);
-
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen)
+  }
+
+  const [isAddNewOpen, setAddNewOpen] = useState(false);
+  const handleAddClick = () => {
+    setAddNewOpen(!isAddNewOpen);
   }
 
   return (
@@ -26,9 +28,12 @@ const Layout = () => {
           <Topbar toggleSidebar={toggleSidebar} />
         </section>
         <section className="outlet">
-          {outlet}
+          {React.cloneElement(outlet, { handleAddClick })}
         </section>
       </section>
+      {isAddNewOpen && (
+        <div className="backdrop" onClick={handleAddClick} />
+      )}
     </section>
   )
 }
