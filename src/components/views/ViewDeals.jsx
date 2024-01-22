@@ -48,7 +48,7 @@ const generateRandomData = () => {
     return data;
 };
 
-const ViewDeals = () => {
+const ViewDeals = React.memo(() => {
     const tableData = generateRandomData();
     return (
 
@@ -94,6 +94,6 @@ const ViewDeals = () => {
             </table>
         </>
     );
-}
+})
 
 export default ViewDeals

@@ -2,13 +2,13 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 
-const AddLead = ({ isAddNewOpen, handleAddClick }) => {
+const AddLead = ({ isAddNewLeadOpen, handleAddLeadClick }) => {
     return (
         <>
-            <aside className={`form ${isAddNewOpen ? '' : 'translate-x-full'}`}>
+            <aside className={`form ${isAddNewLeadOpen ? '' : 'translate-x-full'}`}>
                 <div className="title-header">
                     <h1 className="main-title">Add New Lead</h1>
-                    <button className='form-close' onClick={handleAddClick}><FontAwesomeIcon icon={faTimes} /></button>
+                    <button className='form-close' onClick={handleAddLeadClick}><FontAwesomeIcon icon={faTimes} /></button>
                 </div>
                 <form action="#" className='form-container'>
                     <div className="form-fields">
@@ -72,7 +72,7 @@ const AddLead = ({ isAddNewOpen, handleAddClick }) => {
                     </div>
                     <div className="form-fields col-span-2">
                         <button type='button' className='submit-btn'>Submit</button>
-                        <button type='button' className='cancel-btn' onClick={handleAddClick}>Cancel</button>
+                        <button type='button' className='cancel-btn' onClick={handleAddLeadClick}>Cancel</button>
                     </div>
                 </form>
             </aside>

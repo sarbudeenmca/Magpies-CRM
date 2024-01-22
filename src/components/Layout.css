@@ -175,3 +175,7 @@ select.form-input option {
 .cancel-btn {
     @apply h-8 bg-transparent mr-4 rounded px-4 text-white text-[13px] font-light border border-transparent hover:border-accentd3;
 }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
