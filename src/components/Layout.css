@@ -28,7 +28,7 @@
 }
 
 .title-header {
-    @apply mb-6 flex items-center flex justify-between;
+    @apply mb-6 flex items-center justify-between;
 }
 
 h1.main-title {
