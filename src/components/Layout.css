@@ -129,7 +129,7 @@ aside.form {
 }
 
 .backdrop {
-    @apply fixed top-0 left-0 w-screen h-screen bg-darkd7/80 z-[1] backdrop-blur-[1px];
+    @apply fixed top-0 left-0 w-screen h-full bg-darkd7/80 z-[1] backdrop-blur-[1px];
 }
 
 .form .title-header {
