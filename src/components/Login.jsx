@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {  useState } from 'react'
 import Logo from '../assets/img/logo-w.png'
 import './Login.css';
 import axios from '../api/axios';
@@ -12,17 +12,29 @@ const Login = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault()
-
         try {
-            await axios.post('/auth/login', { email, password })
+            await axios.post('/api/auth/login', { email, password })
             setEmail("")
             setPassword("")
             navigate('/dashboard')
         } catch (e) {
             console.log(e)
         }
-
     }
+
+    //const [fetched, setFetched] = useState(false)
+
+    // useEffect(() => {
+    //     if (!fetched) {
+    //         getCors()
+    //         setFetched(true)
+    //     }
+    // }, [fetched])
+
+    // async function getCors() {
+    //     const csrf = await axios.get('/sanctum/csrf-cookie');
+    //     console.log('csrf = ', csrf);
+    // }
 
     return (
         <section className='main'>
