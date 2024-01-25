@@ -6,8 +6,12 @@ import Dashboard from './components/Dashboard'
 import Leads from './components/Leads'
 import Accounts from './components/Accounts'
 import Deals from './components/Deals'
+import { createContext } from 'react'
 
 function App() {
+
+  const AuthContext = createContext;
+
   return (
     <div>
       <Routes>

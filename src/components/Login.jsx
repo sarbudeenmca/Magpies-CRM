@@ -1,4 +1,4 @@
-import React, {  useState } from 'react'
+import React, { useState } from 'react'
 import Logo from '../assets/img/logo-w.png'
 import './Login.css';
 import axios from '../api/axios';
@@ -8,12 +8,15 @@ const Login = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [token, setToken] = useState('');
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault()
         try {
-            await axios.post('/api/auth/login', { email, password })
+            const response = await axios.post('/api/auth/login', { email, password })
+            const { token } = response.data;
+            setToken(token);
             setEmail("")
             setPassword("")
             navigate('/dashboard')
@@ -22,7 +25,7 @@ const Login = () => {
         }
     }
 
-    //const [fetched, setFetched] = useState(false)
+    // const [fetched, setFetched] = useState(false)
 
     // useEffect(() => {
     //     if (!fetched) {
