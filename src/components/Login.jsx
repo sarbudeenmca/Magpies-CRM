@@ -17,9 +17,11 @@ const Login = () => {
             const response = await axios.post('/api/auth/login', { email, password })
             const { token } = response.data;
             setToken(token);
+            localStorage.setItem('token', token)
+            console.log("token", token)
             setEmail("")
             setPassword("")
-            navigate('/dashboard')
+            navigate('/')
         } catch (e) {
             console.log(e)
         }
