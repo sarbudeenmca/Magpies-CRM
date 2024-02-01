@@ -24,6 +24,12 @@ const AddLead = ({ isAddNewLeadOpen, handleAddLeadClick }) => {
                         </label>
                     </div>
                     <div className="form-fields">
+                        <input type="text" id="phoneNumber" className="form-input peer" placeholder=" " />
+                        <label htmlFor="phoneNumber" className="form-label">
+                            Phone Number
+                        </label>
+                    </div>
+                    <div className="form-fields">
                         <input type="text" id="mobileNumber" className="form-input peer" placeholder=" " />
                         <label htmlFor="mobileNumber" className="form-label">
                             Mobile Number

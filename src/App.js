@@ -32,13 +32,14 @@ function App() {
           <PrivateRoutes path="/deals" element={<Deals />} />
           <PrivateRoutes path="/accounts" element={<Accounts />} />
         </Route> */}
-        {/* <Route path="/" element={<PrivateRoutes />}> */}
-        <Route path="/" element={<Layout />}>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/leads" element={<Leads />} />
-          <Route path="/deals" element={<Deals />} />
-          <Route path="/accounts" element={<Accounts />} />
+        <Route path="/" element={<PrivateRoutes />}>
+          <Route path="/" element={<Layout />}>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/leads" element={<Leads />} />
+            <Route path="/deals" element={<Deals />} />
+            <Route path="/accounts" element={<Accounts />} />
+          </Route>
         </Route>
       </Routes>
 
