@@ -9,9 +9,11 @@ export const LeadDataProvider = ({ children }) => {
         setAddNewLeadOpen(!isAddNewLeadOpen);
     }
 
-    <LeadDataContext.Provider value={{ isAddNewLeadOpen, handleAddLeadClick }} >
-        {children}
-    </LeadDataContext.Provider>
+    return (
+        <LeadDataContext.Provider value={{ isAddNewLeadOpen, handleAddLeadClick }} >
+            {children}
+        </LeadDataContext.Provider>
+    )
 }
 
 export default LeadDataContext
