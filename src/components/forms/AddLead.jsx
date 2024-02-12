@@ -44,9 +44,17 @@ const AddLead = () => {
             setModalMessage(response.data.message)
             setIsOpen(true);
         } catch (error) {
-            // console.log(error.response.data)
-            setModalTitle('Success')
-            setModalMessage(error.response.data.message)
+            if (error.response && error.response.status === 422) {
+                // Validation errors
+                const errors = error.response.data.errors;
+                const errorMessage = Object.values(errors).flat().join(', '); // Join all error messages into a single string
+                setModalTitle('Validation Error');
+                setModalMessage(errorMessage);
+            } else {
+                // Other errors
+                setModalTitle('Failed');
+                setModalMessage('An error occurred');
+            }
             setIsOpen(true);
         }
 
@@ -152,7 +160,7 @@ const AddLead = () => {
                     </div>
                     <div className="form-fields col-span-2">
                         <button type='submit' className='submit-btn' onClick={handleAddLeadClick}>Submit</button>
-                        <button type='button' className='cancel-btn'>Cancel</button>
+                        <button type='button' className='cancel-btn' onClick={handleAddLeadClick}>Cancel</button>
                     </div>
                 </form>
             </aside>

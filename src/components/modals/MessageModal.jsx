@@ -1,5 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react"
 import React, { Fragment } from "react"
+import './MessageModal.css'
 
 const MessageModal = ({ isOpen, setIsOpen, closeModal, modalTitle, modalMessage }) => {
 
@@ -13,15 +14,11 @@ const MessageModal = ({ isOpen, setIsOpen, closeModal, modalTitle, modalMessage 
 
     return (
         <>
-            <div className="fixed inset-0 flex items-center justify-center">
-                <button
-                    type="button"
-                    onClick={openModal}
-                    className="rounded-md bg-black/20 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
-                >
+            {/* <div className="fixed inset-0 flex items-start justify-end">
+                <button type="button" onClick={openModal} className="bg-warning px-4 py-2 text-whit">
                     Open dialog
                 </button>
-            </div>
+            </div> */}
 
             <Transition appear show={isOpen} as={Fragment}>
                 <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -34,11 +31,11 @@ const MessageModal = ({ isOpen, setIsOpen, closeModal, modalTitle, modalMessage 
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <div className="fixed inset-0 bg-black/25" />
+                        <div className="message-modal-backdrop" />
                     </Transition.Child>
 
                     <div className="fixed inset-0 overflow-y-auto">
-                        <div className="flex min-h-full items-center justify-center p-4 text-center">
+                        <div className="message-modal-wrap">
                             <Transition.Child
                                 as={Fragment}
                                 enter="ease-out duration-300"
@@ -48,26 +45,19 @@ const MessageModal = ({ isOpen, setIsOpen, closeModal, modalTitle, modalMessage 
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                                    <Dialog.Title
-                                        as="h3"
-                                        className="text-lg font-medium leading-6 text-gray-900"
-                                    >
+                                <Dialog.Panel className="message-modal">
+                                    <Dialog.Title as="h3" className="message-modal-title">
                                         {modalTitle}
                                     </Dialog.Title>
                                     <div className="mt-2">
-                                        <p className="text-sm text-gray-500">
+                                        <p className="message-modal-text">
                                             {modalMessage}
                                         </p>
                                     </div>
 
                                     <div className="mt-4">
-                                        <button
-                                            type="button"
-                                            className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                                            onClick={closeModal}
-                                        >
-                                            Got it, thanks!
+                                        <button type="button" className="message-modal-btn" onClick={closeModal} >
+                                            OK
                                         </button>
                                     </div>
                                 </Dialog.Panel>
