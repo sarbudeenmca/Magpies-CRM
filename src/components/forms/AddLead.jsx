@@ -3,9 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import LeadDataContext from '../../context/leadContext'
 import React, { useContext, useState } from 'react'
 import axios from '../../api/axios'
+import MessageModal from '../modals/MessageModal'
 
 const AddLead = () => {
     const { isAddNewLeadOpen, handleAddLeadClick } = useContext(LeadDataContext)
+    const [isOpen, setIsOpen] = useState(false)
+    const [modalTitle, setModalTitle] = useState('')
+    const [modalMessage, setModalMessage] = useState('')
 
     const [leadName, setLeadName] = useState("")
     const [companyName, setCompanyName] = useState("")
@@ -35,10 +39,21 @@ const AddLead = () => {
 
         try {
             const response = await axios.post('/api/leads', formData);
-            console.log(response.data);
+            // console.log(response.data);
+            setModalTitle('Success')
+            setModalMessage(response.data.message)
+            setIsOpen(true);
         } catch (error) {
-            console.log(error.response.data)
+            // console.log(error.response.data)
+            setModalTitle('Success')
+            setModalMessage(error.response.data.message)
+            setIsOpen(true);
         }
+
+    }
+
+    const closeModal = () => {
+        setIsOpen(false)
     }
 
     return (
@@ -141,6 +156,7 @@ const AddLead = () => {
                     </div>
                 </form>
             </aside>
+            <MessageModal isOpen={isOpen} closeModal={closeModal} modalTitle={modalTitle} modalMessage={modalMessage} setIsOpen={setIsOpen} />
         </>
     )
 }

@@ -27,20 +27,6 @@ const Login = () => {
         }
     }
 
-    // const [fetched, setFetched] = useState(false)
-
-    // useEffect(() => {
-    //     if (!fetched) {
-    //         getCors()
-    //         setFetched(true)
-    //     }
-    // }, [fetched])
-
-    // async function getCors() {
-    //     const csrf = await axios.get('/sanctum/csrf-cookie');
-    //     console.log('csrf = ', csrf);
-    // }
-
     return (
         <section className='main'>
             <main className='login'>

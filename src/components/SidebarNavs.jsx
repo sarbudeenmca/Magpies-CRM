@@ -9,22 +9,22 @@ const SidebarNavs = () => {
     return (
         <>
             <ul className='sidebar-navs'>
-                <NavLink to="/" activeClassName='active'>
+                <NavLink to="/" className={(navData) => (navData.isActive) ? 'active' : ''}>
                     <li>
                         <FontAwesomeIcon icon={faChartArea} className='navicon' /> Dashboard
                     </li>
                 </NavLink>
-                <NavLink to="/leads" activeClassName='active'>
+                <NavLink to="/leads" className={(navData) => (navData.isActive) ? 'active' : ''}>
                     <li>
                         <FontAwesomeIcon icon={faUser} className='navicon' /> Leads
                     </li>
                 </NavLink>
-                <NavLink to="/deals" activeClassName='active'>
+                <NavLink to="/deals" className={(navData) => (navData.isActive) ? 'active' : ''}>
                     <li>
                         <FontAwesomeIcon icon={faFilter} className='navicon' /> Deals
                     </li>
                 </NavLink>
-                <NavLink to="/accounts" activeClassName='active'>
+                <NavLink to="/accounts" className={(navData) => (navData.isActive) ? 'active' : ''}>
                     <li>
                         <FontAwesomeIcon icon={faBuilding} className='navicon' /> Accounts
                     </li>

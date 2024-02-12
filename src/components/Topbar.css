@@ -14,15 +14,22 @@
     @apply inline mr-6 text-accentd2 text-sm;
 }
 
-.profile-avatar{
+.profile-avatar {
     @apply w-auto h-full p-[6px];
 }
 
-.avatar-img{
+.avatar-img {
     @apply rounded-full w-auto h-full border border-accent/70;
 }
 
-.profile-name{
-    @apply text-secondary; 
+.profile-name {
+    @apply text-secondary;
 }
 
+.tb-menu-items {
+    @apply absolute right-0 z-10 mt-2 w-40 origin-top-right divide-y divide-gray-100 rounded-lg bg-darkd4/50 backdrop-blur-md backdrop-saturate-200 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
+}
+
+.dd-item {
+    @apply text-white/90 text-sm block px-4 py-2 hover:text-primary hover:bg-darkd7/40;
+}
