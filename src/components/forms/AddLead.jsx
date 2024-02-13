@@ -1,15 +1,14 @@
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import LeadDataContext from '../../context/leadContext'
+import LeadDataContext from '../../context/LeadContext'
 import React, { useContext, useState } from 'react'
 import axios from '../../api/axios'
 import MessageModal from '../modals/MessageModal'
+import MessageModalDataContext from '../../context/MessageModalContext'
 
 const AddLead = () => {
     const { isAddNewLeadOpen, handleAddLeadClick } = useContext(LeadDataContext)
-    const [isOpen, setIsOpen] = useState(false)
-    const [modalTitle, setModalTitle] = useState('')
-    const [modalMessage, setModalMessage] = useState('')
+    const { setIsOpen, setModalTitle, setModalMessage, setMessageType } = useContext(MessageModalDataContext)
 
     const [leadName, setLeadName] = useState("")
     const [companyName, setCompanyName] = useState("")
@@ -39,29 +38,38 @@ const AddLead = () => {
 
         try {
             const response = await axios.post('/api/leads', formData);
-            // console.log(response.data);
+            setMessageType('message-theme-success');
             setModalTitle('Success')
             setModalMessage(response.data.message)
-            setIsOpen(true);
+            setIsOpen(true)
+            setLeadName('')
+            setCompanyName('')
+            setPhoneNumber('')
+            setMobileNumber('')
+            setEmailAddress('')
+            setDescription('')
+
         } catch (error) {
             if (error.response && error.response.status === 422) {
                 // Validation errors
                 const errors = error.response.data.errors;
-                const errorMessage = Object.values(errors).flat().join(', '); // Join all error messages into a single string
+                const errorMessage = Object.values(errors).flat().map((error, index) => (
+                    <div key={index}>{error}</div>
+                )
+
+                );
+                setMessageType('message-theme-warning');
                 setModalTitle('Validation Error');
                 setModalMessage(errorMessage);
             } else {
                 // Other errors
-                setModalTitle('Failed');
-                setModalMessage('An error occurred');
+                setMessageType('message-theme-error');
+                setModalTitle('An error occurred!');
+                setModalMessage(error.message);
             }
             setIsOpen(true);
         }
 
-    }
-
-    const closeModal = () => {
-        setIsOpen(false)
     }
 
     return (
@@ -73,31 +81,31 @@ const AddLead = () => {
                 </div>
                 <form action="" className='form-container' onSubmit={handleLeadSubmit}>
                     <div className="form-fields">
-                        <input type="text" id="leadName" onChange={(e) => setLeadName(e.target.value)} className="form-input peer" placeholder=" " />
+                        <input type="text" id="leadName" value={leadName} onChange={(e) => setLeadName(e.target.value)} className="form-input peer" placeholder=" " />
                         <label htmlFor="leadName" className="form-label">
                             Lead Name
                         </label>
                     </div>
                     <div className="form-fields">
-                        <input type="text" id="companyName" onChange={(e) => setCompanyName(e.target.value)} className="form-input peer" placeholder=" " />
+                        <input type="text" id="companyName" value={companyName} onChange={(e) => setCompanyName(e.target.value)} className="form-input peer" placeholder=" " />
                         <label htmlFor="companyName" className="form-label">
                             Company Name
                         </label>
                     </div>
                     <div className="form-fields">
-                        <input type="text" id="phoneNumber" onChange={(e) => setPhoneNumber(e.target.value)} className="form-input peer" placeholder=" " />
+                        <input type="text" id="phoneNumber" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="form-input peer" placeholder=" " />
                         <label htmlFor="phoneNumber" className="form-label">
                             Phone Number
                         </label>
                     </div>
                     <div className="form-fields">
-                        <input type="text" id="mobileNumber" onChange={(e) => setMobileNumber(e.target.value)} className="form-input peer" placeholder=" " />
+                        <input type="text" id="mobileNumber" value={mobileNumber} onChange={(e) => setMobileNumber(e.target.value)} className="form-input peer" placeholder=" " />
                         <label htmlFor="mobileNumber" className="form-label">
                             Mobile Number
                         </label>
                     </div>
                     <div className="form-fields">
-                        <input type="text" id="emailAddress" onChange={(e) => setEmailAddress(e.target.value)} className="form-input peer" placeholder=" " />
+                        <input type="text" id="emailAddress" value={emailAddress} onChange={(e) => setEmailAddress(e.target.value)} className="form-input peer" placeholder=" " />
                         <label htmlFor="emailAddress" className="form-label">
                             Email Address
                         </label>
@@ -153,7 +161,7 @@ const AddLead = () => {
                         </label>
                     </div>
                     <div className="form-fields col-span-2">
-                        <textarea rows="4" id="leadDescription" onChange={(e) => setDescription(e.target.value)} className="form-input peer" placeholder=" " ></textarea>
+                        <textarea rows="4" id="leadDescription" value={description} onChange={(e) => setDescription(e.target.value)} className="form-input peer" placeholder=" " ></textarea>
                         <label htmlFor="leadDescription" className="form-label">
                             Lead Description
                         </label>
@@ -164,7 +172,7 @@ const AddLead = () => {
                     </div>
                 </form>
             </aside>
-            <MessageModal isOpen={isOpen} closeModal={closeModal} modalTitle={modalTitle} modalMessage={modalMessage} setIsOpen={setIsOpen} />
+            <MessageModal />
         </>
     )
 }

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown, faPowerOff } from '@fortawesome/free-solid-svg-icons'
 import { Menu, Transition } from '@headlessui/react'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
-import AuthDataContext from '../context/authContext'
+import AuthDataContext from '../context/AuthContext'
 
 const ProfileIcon = () => {
 

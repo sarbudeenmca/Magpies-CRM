@@ -1,6 +1,6 @@
 import { useState, createContext } from "react";
 
-const LeadDataContext = createContext({})
+const LeadDataContext = createContext()
 
 export const LeadDataProvider = ({ children }) => {
 

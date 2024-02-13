@@ -2,7 +2,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Topbar.css'
 import ProfileIcon from './ProfileIcon'
-import { AuthDataProvider } from '../context/authContext'
+import { AuthDataProvider } from '../context/AuthContext'
 
 const Topbar = ({ toggleSidebar }) => {
   return (

@@ -1,15 +1,14 @@
 import { Dialog, Transition } from "@headlessui/react"
-import React, { Fragment } from "react"
+import React, { Fragment, useContext } from "react"
 import './MessageModal.css'
+import MessageModalDataContext from "../../context/MessageModalContext"
 
-const MessageModal = ({ isOpen, setIsOpen, closeModal, modalTitle, modalMessage }) => {
+const MessageModal = () => {
+
+    const { isOpen, modalTitle, modalMessage, setIsOpen, messageType } = useContext(MessageModalDataContext)
 
     function closeModal() {
         setIsOpen(false)
-    }
-
-    function openModal() {
-        setIsOpen(true)
     }
 
     return (
@@ -46,7 +45,7 @@ const MessageModal = ({ isOpen, setIsOpen, closeModal, modalTitle, modalMessage 
                                 leaveTo="opacity-0 scale-95"
                             >
                                 <Dialog.Panel className="message-modal">
-                                    <Dialog.Title as="h3" className="message-modal-title">
+                                    <Dialog.Title as="h3" className={`${messageType} message-modal-title`}>
                                         {modalTitle}
                                     </Dialog.Title>
                                     <div className="mt-2">

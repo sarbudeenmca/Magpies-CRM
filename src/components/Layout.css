@@ -128,8 +128,9 @@ aside.form {
     @apply w-1/2 absolute top-0 right-0 h-full bg-darkd3 px-12 py-10 transform duration-300 z-[10];
 }
 
-.backdrop {
-    @apply fixed top-0 left-0 w-screen h-full bg-darkd7/80 z-[1] backdrop-blur-[1px];
+.form-backdrop {
+    /* @apply fixed inset-0 w-screen h-full bg-darkd7/80 z-[1] backdrop-blur-[1px]; */
+    @apply fixed inset-0 bg-darkd7/10 backdrop-saturate-150 backdrop-blur-sm;
 }
 
 .form .title-header {

@@ -3,7 +3,8 @@ import Topbar from './Topbar'
 import Sidebar from './Sidebar'
 import './Layout.css'
 import { useOutlet } from 'react-router-dom'
-import { LeadDataProvider } from '../context/leadContext'
+import { LeadDataProvider } from '../context/LeadContext'
+import { MessageModalDataProvider } from '../context/MessageModalContext'
 
 const Layout = () => {
 
@@ -23,11 +24,13 @@ const Layout = () => {
         <section className='topbar'>
           <Topbar toggleSidebar={toggleSidebar} />
         </section>
-        <LeadDataProvider>
-          <section className="outlet">
-            {React.cloneElement(outlet)}
-          </section>
-        </LeadDataProvider>
+        <MessageModalDataProvider>
+          <LeadDataProvider>
+            <section className="outlet">
+              {React.cloneElement(outlet)}
+            </section>
+          </LeadDataProvider>
+        </MessageModalDataProvider>
       </section>
     </section>
   )
