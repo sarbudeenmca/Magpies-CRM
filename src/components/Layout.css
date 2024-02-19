@@ -80,11 +80,11 @@ table.datatable td a {
     @apply text-accent/60 mt-[4px] inline-block hover:text-accent;
 }
 
-table.datatable td.active label {
+table.datatable .active label {
     @apply border border-success text-successd1 block pt-1 pb-[3px] rounded-full uppercase font-normal w-20 text-[12px] text-center cursor-pointer hover:bg-successd2 hover:text-white;
 }
 
-table.datatable td.inactive label {
+table.datatable .inactive label {
     @apply text-accentd1 block pt-1 pb-[3px] rounded-full uppercase font-normal w-20 text-[12px] text-center border border-accentd1 cursor-pointer hover:text-white hover:bg-accentd4 hover:border-accentd4;
 }
 
