@@ -8,7 +8,7 @@ import MessageModalDataContext from '../../context/MessageModalContext'
 
 const AddLead = () => {
     const { isAddNewLeadOpen, handleAddLeadClick } = useContext(LeadDataContext)
-    const { setIsOpen, setModalTitle, setModalMessage, setMessageType } = useContext(MessageModalDataContext)
+    const { setIsOpen, setModalTitle, setModalMessage, setMessageType, setLeadsUpdated } = useContext(MessageModalDataContext)
 
     const [leadName, setLeadName] = useState("")
     const [companyName, setCompanyName] = useState("")
@@ -48,6 +48,7 @@ const AddLead = () => {
             setMobileNumber('')
             setEmailAddress('')
             setDescription('')
+            setLeadsUpdated(true)
 
         } catch (error) {
             if (error.response && error.response.status === 422) {
@@ -126,7 +127,7 @@ const AddLead = () => {
                         <select
                             id="leadStatus"
                             name="lead_status"
-                            className="form-input peer"
+                            className="form-select peer"
                             onChange={(e) => setLeadStatus(e.target.value)}
                         >
                             <option value="">-select-</option>
@@ -145,7 +146,7 @@ const AddLead = () => {
                         <select
                             id="leadSource"
                             name="lead_source"
-                            className="form-input peer"
+                            className="form-select peer"
                             onChange={(e) => setLeadSource(e.target.value)}
                         >
                             <option value="">-select-</option>
