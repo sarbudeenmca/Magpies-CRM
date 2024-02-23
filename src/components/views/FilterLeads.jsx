@@ -11,7 +11,7 @@ const FilterLeads = () => {
             <label className='page-info'><i>Page 1 of 3</i> <FontAwesomeIcon icon={faAngleLeft} className='left-icon' /><FontAwesomeIcon icon={faAngleRight} className='right-icon' /></label>
             <select
                 value={dataLength}
-                onChange={() => handleDataLength()}
+                onChange={handleDataLength}
                 name="lead_status"
                 className="form-select data-length">
                 <option value="5">5 rows</option>

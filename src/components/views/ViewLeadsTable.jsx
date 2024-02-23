@@ -14,15 +14,14 @@ const ViewLeadsTable = () => {
 
     const fetchLeads = useCallback(async () => {
         try {
-            const response = await axios.get('/api/leads')
-            console.log("Data:", response.data.leads)
+            const response = await axios.get(`/api/leads?limit=${dataLength}`)
             setLeadData(response.data.leads)
             setLeadsUpdated(false)
         } catch (error) {
             console.error('Error fetching leads:', error);
             return [];
         }
-    }, [setLeadsUpdated])
+    }, [setLeadsUpdated, dataLength])
 
     const memorizedColumns = useMemo(() => leadColumns, [])
     const memorizedData = useMemo(() => leadData, [leadData])
