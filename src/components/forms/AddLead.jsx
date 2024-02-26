@@ -163,7 +163,7 @@ const AddLead = () => {
                     </div>
                     <div className="form-fields col-span-2">
                         <textarea rows="4" id="leadDescription" value={description} onChange={(e) => setDescription(e.target.value)} className="form-input peer" placeholder=" " ></textarea>
-                        <label htmlFor="leadDescription" className="form-label">
+                        <label htmlFor="leadDescription" className="textarea form-label">
                             Lead Description
                         </label>
                     </div>
