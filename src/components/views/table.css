@@ -1,0 +1,64 @@
+table.datatable {
+    @apply w-full table-auto border-separate border-spacing-0 pb-6 mb-14 border-b border-accentd4/70;
+}
+
+table.datatable th {
+    @apply font-normal text-[13px] text-left text-accent pb-4;
+}
+
+table.datatable th:first-child {
+    @apply pl-3;
+}
+
+table.datatable td {
+    @apply font-light text-[13px] text-left text-white whitespace-pre-line py-3;
+}
+
+table.datatable thead tr th {
+    @apply border-b border-darkd2 pb-2;
+}
+
+table.datatable thead tr th span.sortIcon {
+    @apply float-end pr-8;
+}
+
+table.datatable thead tr th span.sortIcon .sort-default {
+    @apply float-end opacity-20;
+}
+
+table.datatable tbody tr {
+    @apply hover:bg-darkd7;
+}
+
+table.datatable tbody td:first-child {
+    @apply pl-3 rounded-s-md;
+}
+
+table.datatable tbody td:last-child {
+    @apply pr-3 rounded-e-md;
+}
+
+table.datatable td a {
+    @apply text-accent/60 mt-[4px] inline-block hover:text-accent;
+}
+
+table.datatable .active label {
+    @apply border border-success text-successd1 block pt-1 pb-[3px] rounded-full uppercase font-normal w-20 text-[12px] text-center cursor-pointer hover:bg-successd2 hover:text-white;
+}
+
+table.datatable .inactive label {
+    @apply text-accentd1 block pt-1 pb-[3px] rounded-full uppercase font-normal w-20 text-[12px] text-center border border-accentd1 cursor-pointer hover:text-white hover:bg-accentd4 hover:border-accentd4;
+}
+
+table.datatable td button.edit-icon {
+    @apply w-8 aspect-square rounded-full bg-accentd1 hover:bg-accentd3 pt-[3px];
+}
+
+table.datatable td button.trash-icon {
+    @apply w-8 aspect-square rounded-full bg-danger ml-2 hover:bg-dangerd2 pt-[3px];
+}
+
+
+table.datatable input.check {
+    @apply h-5 w-5 mt-2 border-0 bg-accent opacity-10;
+}

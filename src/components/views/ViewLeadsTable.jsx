@@ -1,10 +1,13 @@
-import { useTable } from 'react-table'
+import { useTable, useSortBy } from 'react-table'
 import { leadColumns } from './ViewLeadColumns'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import axios from '../../api/axios';
 import { useContext } from 'react';
 import MessageModalDataContext from '../../context/MessageModalContext';
 import FilterDataContext from '../../context/FilterContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
+import './table.css'
 
 const ViewLeadsTable = () => {
 
@@ -35,7 +38,7 @@ const ViewLeadsTable = () => {
         columns: memorizedColumns,
         data: memorizedData
 
-    })
+    }, useSortBy)
 
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance
 
@@ -46,8 +49,12 @@ const ViewLeadsTable = () => {
                     headerGroups.map(headerGroup => (
                         <tr {...headerGroup.getHeaderGroupProps()}>
                             {headerGroup.headers.map(column => (
-                                <th {...column.getHeaderProps()}>
+                                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                                     {column.render('header')}
+                                    <span className='sortIcon'>{
+                                        column.isSorted ? (column.isSortedDesc ? <FontAwesomeIcon icon={faSortDown} /> : <FontAwesomeIcon icon={faSortUp} />) : <FontAwesomeIcon className='sort-default' icon={faSort} />
+                                    }
+                                    </span>
                                 </th>
                             ))}
                         </tr>
@@ -70,6 +77,23 @@ const ViewLeadsTable = () => {
                     })
                 }
             </tbody>
+            {/* <tfoot>
+                {
+                    footerGroups.map(footerGroup => (
+                        <tr {...footerGroup.getFooterGroupProps()}>
+                            {
+                                footerGroup.headers.map(column => (
+                                    <td {...column.getFooterProps}>
+                                        {
+                                            column.render('footer')
+                                        }
+                                    </td>
+                                ))
+                            }
+                        </tr>
+                    ))
+                }
+            </tfoot> */}
         </table>
     )
 }

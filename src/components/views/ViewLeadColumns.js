@@ -5,14 +5,17 @@ import { faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
 export const leadColumns = [
     {
         header: 'Lead Name',
+        footer: 'Lead Name',
         accessor: 'lead_name',
     },
     {
         header: 'Company',
+        footer: 'Company',
         accessor: 'company_name',
     },
     {
         header: 'Telephone',
+        footer: 'Telephone',
         accessor: 'phone_number',
         Cell: ({ row }) => (
             <a href={`tel:${row.original.phone_number}`}>
@@ -22,6 +25,7 @@ export const leadColumns = [
     },
     {
         header: 'Email Address',
+        footer: 'Email Address',
         accessor: 'email_address',
         Cell: ({ row }) => (
             <a href={`mailto:${row.original.email_address}`}>
@@ -31,10 +35,12 @@ export const leadColumns = [
     },
     {
         header: 'Country',
+        footer: 'Country',
         accessor: 'country',
     },
     {
         header: 'Status',
+        footer: 'Status',
         accessor: 'lead_status',
         Cell: ({ row }) => (
             <div className={row.original.lead_status === 'Active' ? 'active' : 'inactive'}>
@@ -44,9 +50,11 @@ export const leadColumns = [
     },
     {
         header: 'Source',
+        footer: 'Source',
         accessor: 'lead_source'
     }, {
         header: 'Description',
+        footer: 'Description',
         accessor: 'description',
         Cell: ({ row }) => (
             <div>
@@ -58,6 +66,7 @@ export const leadColumns = [
     },
     {
         header: 'Action',
+        footer: 'Action',
         accessor: 'id',
         Cell: ({ row }) => (
             <div>
