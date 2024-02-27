@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import axios from '../../api/axios';
 import { useContext } from 'react';
 import MessageModalDataContext from '../../context/MessageModalContext';
-import FilterDataContext from '../../context/FilterContext';
+import FilterDataContext from '../../context/DataControlsContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
 import './table.css'

@@ -3,9 +3,17 @@ import ViewLeads from './views/ViewLeads'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import AddLead from './forms/AddLead'
-import LeadDataContext from '../context/LeadContext'
+import LeadDataContext, { LeadDataProvider } from '../context/LeadContext'
 
 const Leads = () => {
+  return (
+    <LeadDataProvider>
+      <LeadsContent />
+    </LeadDataProvider>
+  )
+}
+
+const LeadsContent = () => {
   const { isAddNewLeadOpen, handleAddLeadClick } = useContext(LeadDataContext)
 
   return (

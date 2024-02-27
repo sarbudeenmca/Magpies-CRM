@@ -48,22 +48,22 @@ export const leadColumns = [
             </div>
         )
     },
-    {
-        header: 'Source',
-        footer: 'Source',
-        accessor: 'lead_source'
-    }, {
-        header: 'Description',
-        footer: 'Description',
-        accessor: 'description',
-        Cell: ({ row }) => (
-            <div>
-                {
-                    row.original.description.length > 10 ? row.original.description.slice(0,10) + '...' : row.original.description
-                }
-            </div>
-        )
-    },
+    // {
+    //     header: 'Source',
+    //     footer: 'Source',
+    //     accessor: 'lead_source'
+    // }, {
+    //     header: 'Description',
+    //     footer: 'Description',
+    //     accessor: 'description',
+    //     Cell: ({ row }) => (
+    //         <div>
+    //             {
+    //                 row.original.description.length > 10 ? row.original.description.slice(0,10) + '...' : row.original.description
+    //             }
+    //         </div>
+    //     )
+    // },
     {
         header: 'Action',
         footer: 'Action',

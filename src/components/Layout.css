@@ -43,25 +43,25 @@ h1.main-title {
     @apply ml-2;
 }
 
-/*===== Filters =====*/
-.filters {
+/*===== Data Controls =====*/
+.data-controls {
     @apply mb-10 mt-16;
 }
 
-.filters .search {
+.data-controls .search {
     @apply w-3/12 rounded text-sm ml-3 px-4 h-10 bg-transparent border-accentd4 border text-secondaryd1 outline-none focus:border focus:border-accent placeholder:text-white/20 placeholder:font-light;
 }
 
-.filters .page-info {
+.data-controls .page-info {
     @apply float-end mr-4 text-accentd4 text-sm flex items-center;
 }
 
-.filters .left-icon,
-.filters .right-icon {
+.data-controls .left-icon,
+.data-controls .right-icon {
     @apply border border-darkd1 p-2 aspect-square mt-1 mx-1 rounded-sm hover:bg-darkd1 hover:text-white/80 hover:cursor-pointer;
 }
 
-.filters i {
+.data-controls i {
     @apply not-italic mr-3 mt-1;
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
-import FilterDeals from './FilterDeals';
+import DataControls from './DataControls';
 
 const generateRandomData = () => {
     // Function to generate random data
@@ -53,7 +53,7 @@ const ViewDeals = React.memo(() => {
     return (
 
         <>
-            <FilterDeals />
+            <DataControls />
             <table className='datatable'>
                 <thead>
                     <tr>

@@ -1,15 +1,13 @@
 import React from 'react'
-import FilterLeads from './FilterLeads';
+import DataControls from './DataControls';
 import ViewLeadsTable from './ViewLeadsTable';
-import { FilterDataProvider } from '../../context/FilterContext';
-
 const ViewLeads = () => {
 
   return (
-    <FilterDataProvider>
-      <FilterLeads />
+    <>
+      <DataControls />
       <ViewLeadsTable />
-    </FilterDataProvider>
+    </>
   );
 };
 
