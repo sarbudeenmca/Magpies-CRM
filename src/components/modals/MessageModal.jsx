@@ -2,13 +2,18 @@ import { Dialog, Transition } from "@headlessui/react"
 import React, { Fragment, useContext } from "react"
 import './MessageModal.css'
 import MessageModalDataContext from "../../context/MessageModalContext"
+import LeadDataContext from "../../context/LeadContext"
 
 const MessageModal = () => {
 
+    const { handleAddLeadClick } = useContext(LeadDataContext)
     const { isOpen, modalTitle, modalMessage, setIsOpen, messageType } = useContext(MessageModalDataContext)
 
     function closeModal() {
         setIsOpen(false)
+        if (modalTitle !== 'Success') {
+            handleAddLeadClick();
+        }
     }
 
     return (
