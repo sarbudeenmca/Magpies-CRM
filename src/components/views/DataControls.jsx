@@ -1,13 +1,13 @@
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useContext } from 'react'
-import FilterDataContext from '../../context/DataControlsContext'
+import DataControlsContext from '../../context/DataControlsContext'
 
-const DataControls = ({ filter, setFilter }) => {
-    const { dataLength, handleDataLength } = useContext(FilterDataContext)
+const DataControls = () => {
+    const { dataLength, handleDataLength, filter, setFilter } = useContext(DataControlsContext)
     return (
         <div className='data-controls'>
-            <input type='input' value={filter} onChange={(e) => e.target.value} className='search' placeholder='Search' />
+            <input type='input' value={filter} onChange={(e) => setFilter(e.target.value)} className='search' placeholder='Search' />
             <label className='page-info'><i>Page 1 of 3</i> <FontAwesomeIcon icon={faAngleLeft} className='left-icon' /><FontAwesomeIcon icon={faAngleRight} className='right-icon' /></label>
             <select
                 value={dataLength}

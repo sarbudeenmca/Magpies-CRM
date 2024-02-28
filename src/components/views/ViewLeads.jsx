@@ -1,13 +1,14 @@
 import React from 'react'
 import DataControls from './DataControls';
-import ViewLeadsTable from './ViewLeadsTable';
+import DataTable from './DataTable';
+import { DataControlsProvider } from '../../context/DataControlsContext';
 const ViewLeads = () => {
 
   return (
-    <>
+    <DataControlsProvider>
       <DataControls />
-      <ViewLeadsTable />
-    </>
+      <DataTable />
+    </DataControlsProvider>
   );
 };
 

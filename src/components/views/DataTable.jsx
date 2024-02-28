@@ -1,46 +1,12 @@
-import { useTable, useSortBy } from 'react-table'
-import { leadColumns } from './ViewLeadColumns'
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
-import axios from '../../api/axios';
-import { useContext } from 'react';
-import MessageModalDataContext from '../../context/MessageModalContext';
-import FilterDataContext from '../../context/DataControlsContext';
+import React, { useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
-import './table.css'
+import './DataTable.css'
+import DataControlsContext from '../../context/DataControlsContext';
 
-const ViewLeadsTable = () => {
+const DataTable = () => {
 
-    const { leadsUpdated, setLeadsUpdated } = useContext(MessageModalDataContext)
-    const { dataLength } = useContext(FilterDataContext)
-    const [leadData, setLeadData] = useState([])
-
-    const fetchLeads = useCallback(async () => {
-        try {
-            const response = await axios.get(`/api/leads?limit=${dataLength}`)
-            setLeadData(response.data.leads)
-            setLeadsUpdated(false)
-        } catch (error) {
-            console.error('Error fetching leads:', error);
-            return [];
-        }
-    }, [setLeadsUpdated, dataLength])
-
-    const memorizedColumns = useMemo(() => leadColumns, [])
-    const memorizedData = useMemo(() => leadData, [leadData])
-
-    useEffect(() => {
-        fetchLeads();
-    }, [fetchLeads, leadsUpdated])
-
-
-    const tableInstance = useTable({
-        columns: memorizedColumns,
-        data: memorizedData
-
-    }, useSortBy)
-
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance
+    const { getTableProps, headerGroups, getTableBodyProps, rows, prepareRow } = useContext(DataControlsContext)
 
     return (
         <table {...getTableProps()} className='datatable'>
@@ -98,4 +64,4 @@ const ViewLeadsTable = () => {
     )
 }
 
-export default ViewLeadsTable
+export default DataTable
