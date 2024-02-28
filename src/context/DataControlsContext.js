@@ -18,14 +18,14 @@ export const DataControlsProvider = ({ children }) => {
     //Check Lead updated status for re-render table after form submission
     const { leadsUpdated, setLeadsUpdated } = useContext(MessageModalDataContext)
 
-    //change state for leadData once data is fetched
-    const [leadData, setLeadData] = useState([])
+    //change state for tableData once data is fetched
+    const [tableData, setTableData] = useState([])
 
     //data fetching
-    const fetchLeads = useCallback(async () => {
+    const fetchTableData = useCallback(async () => {
         try {
             const response = await axios.get(`/api/leads?limit=${dataLength}`)
-            setLeadData(response.data.leads)
+            setTableData(response.data.leads)
             setLeadsUpdated(false)
             console.info('Lead Rendered');
         } catch (error) {
@@ -36,12 +36,12 @@ export const DataControlsProvider = ({ children }) => {
 
     //memorize for avoid unnecessary re-renders
     const memorizedColumns = useMemo(() => leadColumns, [])
-    const memorizedData = useMemo(() => leadData, [leadData])
+    const memorizedData = useMemo(() => tableData, [tableData])
 
     //initial fetching
     useEffect(() => {
-        fetchLeads();
-    }, [fetchLeads, leadsUpdated])
+        fetchTableData();
+    }, [fetchTableData, leadsUpdated])
 
     //Table instance
     const tableInstance = useTable({

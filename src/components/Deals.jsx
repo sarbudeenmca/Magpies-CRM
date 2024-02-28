@@ -1,15 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import ViewDeals from './views/ViewDeals'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import AddDeal from './forms/AddDeal'
+import DealDataContext, { DealDataProvider } from '../context/DealContext'
 
 const Deals = () => {
-    const [isAddNewDealOpen, setAddNewDealOpen] = useState(false);
-    const handleAddDealClick = () => {
-        setAddNewDealOpen(!isAddNewDealOpen);
-    }
+    return (
+        <DealDataProvider>
+            <DealsContent />
+        </DealDataProvider>
+    )
+}
 
+const DealsContent = () => {
+    const { isAddNewDealOpen, handleAddDealClick } = useContext(DealDataContext)
     return (
         <>
             <div className='title-header'>
@@ -17,7 +22,7 @@ const Deals = () => {
                 <button className='btn-add-new' onClick={handleAddDealClick}><FontAwesomeIcon icon={faPlus} /><span>Add New</span></button>
             </div>
             <ViewDeals />
-            <AddDeal isAddNewDealOpen={isAddNewDealOpen} handleAddDealClick={handleAddDealClick} />
+            <AddDeal />
             {isAddNewDealOpen && (
                 <div className='backdrop' onClick={handleAddDealClick}></div>
             )}

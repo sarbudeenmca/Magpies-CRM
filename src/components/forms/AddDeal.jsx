@@ -1,8 +1,35 @@
-import React from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import axios from '../../api/axios'
+import DealDataContext from '../../context/DealContext'
 
-const AddDeal = ({ isAddNewDealOpen, handleAddDealClick }) => {
+const AddDeal = () => {
+
+    const { isAddNewDealOpen, handleAddDealClick } = useContext(DealDataContext)
+    const [selectedLead, setSelectedLead] = useState('');
+
+    const handleChangeLeadName = (e) => {
+        setSelectedLead(e.target.value)
+    }
+
+    const [leadNames, setLeadName] = useState([])
+    //Lead Name fetching
+
+    useEffect(() => {
+        const fetchLeadNames = async () => {
+            try {
+                const response = await axios.get(`/api/leadnames`)
+                setLeadName(response.data.leadNames)
+                console.info('Lead Names Rendered for Select');
+            } catch (error) {
+                console.error('Error fetching lead names:', error);
+                return [];
+            }
+        }
+        fetchLeadNames();
+    }, [])
+
     return (
         <>
             <aside className={`form ${isAddNewDealOpen ? '' : 'translate-x-full'}`}>
@@ -12,12 +39,11 @@ const AddDeal = ({ isAddNewDealOpen, handleAddDealClick }) => {
                 </div>
                 <form action="#" className='form-container'>
                     <div className="form-fields">
-                        <select id="leadName" name="leadName" className="form-input peer" >
+                        <select id="leadName" name="leadName" className="form-select peer" value={selectedLead} onChange={handleChangeLeadName}>
                             <option value="">- Select -</option>
-                            <option value="Name 1">Name 1</option>
-                            <option value="Name 2">Name 2</option>
-                            <option value="Name 3">Name 3</option>
-                            <option value="Name 4">Name 4</option>
+                            {leadNames.map(leadName => (
+                                <option key={leadName} value={leadName}>{leadName}</option>
+                            ))}
                         </select>
                         <label htmlFor="leadName" className="form-label">
                             Lead Name
@@ -55,7 +81,7 @@ const AddDeal = ({ isAddNewDealOpen, handleAddDealClick }) => {
                         </label>
                     </div>
                     <div className="form-fields">
-                        <select id="dealStatus" name="dealStatus" className="form-input peer" >
+                        <select id="dealStatus" name="dealStatus" className="form-select peer" >
                             <option value="">- Select -</option>
                             <option value="Hold On">Hold On</option>
                             <option value="RFI">RFI</option>
