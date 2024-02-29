@@ -3,28 +3,20 @@ import ViewDeals from './views/ViewDeals'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import AddDeal from './forms/AddDeal'
-import DealDataContext, { DealDataProvider } from '../context/DealContext'
+import SidebarControlContext from '../context/SidebarControlContext'
 
 const Deals = () => {
-    return (
-        <DealDataProvider>
-            <DealsContent />
-        </DealDataProvider>
-    )
-}
-
-const DealsContent = () => {
-    const { isAddNewDealOpen, handleAddDealClick } = useContext(DealDataContext)
+    const { isAddNewOpen, handleAddClick } = useContext(SidebarControlContext)
     return (
         <>
             <div className='title-header'>
                 <h1 className='main-title'>Deals</h1>
-                <button className='btn-add-new' onClick={handleAddDealClick}><FontAwesomeIcon icon={faPlus} /><span>Add New</span></button>
+                <button className='btn-add-new' onClick={handleAddClick}><FontAwesomeIcon icon={faPlus} /><span>Add New</span></button>
             </div>
             <ViewDeals />
             <AddDeal />
-            {isAddNewDealOpen && (
-                <div className='backdrop' onClick={handleAddDealClick}></div>
+            {isAddNewOpen && (
+                <div className='backdrop' onClick={handleAddClick}></div>
             )}
         </>
     )

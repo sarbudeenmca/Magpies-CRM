@@ -5,6 +5,7 @@ import './Layout.css'
 import { useOutlet } from 'react-router-dom'
 import { MessageModalDataProvider } from '../context/MessageModalContext'
 import { DataControlsProvider } from '../context/DataControlsContext'
+import { SidebarControlProvider } from '../context/SidebarControlContext'
 
 const Layout = () => {
 
@@ -26,9 +27,11 @@ const Layout = () => {
         </section>
         <MessageModalDataProvider>
           <DataControlsProvider>
-            <section className="outlet">
-              {React.cloneElement(outlet)}
-            </section>
+            <SidebarControlProvider>
+              <section className="outlet">
+                {React.cloneElement(outlet)}
+              </section>
+            </SidebarControlProvider>
           </DataControlsProvider>
         </MessageModalDataProvider>
       </section>

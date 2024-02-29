@@ -8,10 +8,10 @@ export const MessageModalDataProvider = ({ children }) => {
     const [modalTitle, setModalTitle] = useState('')
     const [modalMessage, setModalMessage] = useState('')
     const [messageType, setMessageType] = useState('')
-    const [leadsUpdated, setLeadsUpdated] = useState(false)
+    const [datasUpdated, setDatasUpdated] = useState(false)
 
     return (
-        <MessageModalDataContext.Provider value={{ isOpen, setIsOpen, modalTitle, setModalTitle, modalMessage, setModalMessage, messageType, setMessageType, leadsUpdated, setLeadsUpdated }}>
+        <MessageModalDataContext.Provider value={{ isOpen, setIsOpen, modalTitle, setModalTitle, modalMessage, setModalMessage, messageType, setMessageType, datasUpdated, setDatasUpdated }}>
             {children}
         </MessageModalDataContext.Provider>
     )

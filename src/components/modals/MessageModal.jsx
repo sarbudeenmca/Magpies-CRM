@@ -2,7 +2,7 @@ import { Dialog, Transition } from "@headlessui/react"
 import React, { Fragment, useContext } from "react"
 import './MessageModal.css'
 import MessageModalDataContext from "../../context/MessageModalContext"
-import LeadDataContext from "../../context/LeadContext"
+import LeadDataContext from "../../context/SidebarControlContext"
 
 const MessageModal = () => {
 

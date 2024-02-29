@@ -1,13 +1,13 @@
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import LeadDataContext from '../../context/LeadContext'
+import SidebarControlContext from '../../context/SidebarControlContext'
 import React, { useContext, useState } from 'react'
 import axios from '../../api/axios'
 import MessageModal from '../modals/MessageModal'
 import MessageModalDataContext from '../../context/MessageModalContext'
 
 const AddLead = () => {
-    const { isAddNewLeadOpen, handleAddLeadClick } = useContext(LeadDataContext)
+    const { isAddNewOpen, handleAddClick } = useContext(SidebarControlContext)
     const { setIsOpen, setModalTitle, setModalMessage, setMessageType, setLeadsUpdated } = useContext(MessageModalDataContext)
 
     const [leadName, setLeadName] = useState("")
@@ -75,10 +75,10 @@ const AddLead = () => {
 
     return (
         <>
-            <aside className={`form ${isAddNewLeadOpen ? '' : 'translate-x-full'}`}>
+            <aside className={`form ${isAddNewOpen ? '' : 'translate-x-full'}`}>
                 <div className="title-header">
                     <h1 className="main-title">Add New Lead</h1>
-                    <button className='form-close' onClick={handleAddLeadClick}><FontAwesomeIcon icon={faTimes} /></button>
+                    <button className='form-close' onClick={handleAddClick}><FontAwesomeIcon icon={faTimes} /></button>
                 </div>
                 <form action="" className='form-container' onSubmit={handleLeadSubmit}>
                     <div className="form-fields">
@@ -168,8 +168,8 @@ const AddLead = () => {
                         </label>
                     </div>
                     <div className="form-fields col-span-2">
-                        <button type='submit' className='submit-btn' onClick={handleAddLeadClick}>Submit</button>
-                        <button type='button' className='cancel-btn' onClick={handleAddLeadClick}>Cancel</button>
+                        <button type='submit' className='submit-btn' onClick={handleAddClick}>Submit</button>
+                        <button type='button' className='cancel-btn' onClick={handleAddClick}>Cancel</button>
                     </div>
                 </form>
             </aside>

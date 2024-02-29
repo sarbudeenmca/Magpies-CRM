@@ -2,11 +2,11 @@ import React, { useContext, useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import axios from '../../api/axios'
-import DealDataContext from '../../context/DealContext'
+import SidebarControlContext from '../../context/SidebarControlContext'
 
 const AddDeal = () => {
 
-    const { isAddNewDealOpen, handleAddDealClick } = useContext(DealDataContext)
+    const { isAddNewOpen, handleAddClick } = useContext(SidebarControlContext)
     const [selectedLead, setSelectedLead] = useState('');
 
     const handleChangeLeadName = (e) => {
@@ -32,10 +32,10 @@ const AddDeal = () => {
 
     return (
         <>
-            <aside className={`form ${isAddNewDealOpen ? '' : 'translate-x-full'}`}>
+            <aside className={`form ${isAddNewOpen ? '' : 'translate-x-full'}`}>
                 <div className="title-header">
                     <h1 className="main-title">Add New Deal</h1>
-                    <button className='form-close' onClick={handleAddDealClick}><FontAwesomeIcon icon={faTimes} /></button>
+                    <button className='form-close' onClick={handleAddClick}><FontAwesomeIcon icon={faTimes} /></button>
                 </div>
                 <form action="#" className='form-container'>
                     <div className="form-fields">
@@ -103,7 +103,7 @@ const AddDeal = () => {
                     </div>
                     <div className="form-fields col-span-2">
                         <button type='button' className='submit-btn'>Submit</button>
-                        <button type='button' className='cancel-btn' onClick={handleAddDealClick}>Cancel</button>
+                        <button type='button' className='cancel-btn' onClick={handleAddClick}>Cancel</button>
                     </div>
                 </form>
             </aside>
