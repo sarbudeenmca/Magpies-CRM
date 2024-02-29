@@ -15,12 +15,12 @@ const Leads = () => {
         <h1 className='main-title'>Leads</h1>
         <button className='btn-add-new' onClick={() => handleAddClick()}><FontAwesomeIcon icon={faPlus} /><span>Add New</span></button>
       </div>
-        <DataControls />
-        <DataTable />
+      <DataControls />
+      <DataTable />
+      <AddLead />
       {isAddNewOpen && (
         <div className="form-backdrop" onClick={handleAddClick} />
       )}
-      <AddLead />
     </>
   )
 }

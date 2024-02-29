@@ -1,9 +1,10 @@
 import { useTable, useSortBy, useGlobalFilter } from 'react-table'
 import { leadColumns } from '../components/views/ViewLeadColumns'
+import { dealColumns } from '../components/views/ViewDealColumns'
 import React, { createContext, useCallback, useEffect, useMemo, useState, useContext } from 'react'
-import MessageModalDataContext from './MessageModalContext';
+import MessageModalDataContext from './MessageModalContext'
 import axios from '../api/axios'
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom'
 
 const DataControlsContext = createContext()
 
@@ -12,6 +13,7 @@ export const DataControlsProvider = ({ children }) => {
 
     // State for controlling the number of data rows displayed in the table
     const [dataLength, setDataLength] = useState(5)
+    const [memorizedColumns, setMemorizedColumns] = useState([])
 
     // Function to handle changes in data length
     const handleDataLength = (e) => {
@@ -34,10 +36,12 @@ export const DataControlsProvider = ({ children }) => {
                 response = await axios.get(`/api/leads?limit=${dataLength}`)
                 setTableData(response.data.leads)
                 console.info('LEADS FETCHED')
+                setMemorizedColumns(leadColumns)
             } else if (pathname === 'deals') {
                 response = await axios.get(`/api/deals?limit=${dataLength}`)
                 setTableData(response.data.deals)
                 console.info('DEALS FETCHED')
+                setMemorizedColumns(dealColumns)
             }
             setDatasUpdated(false)
         } catch (error) {
@@ -46,7 +50,7 @@ export const DataControlsProvider = ({ children }) => {
     }, [location.pathname, dataLength, setDatasUpdated])
 
     // Memoized values for columns and data
-    const memorizedColumns = useMemo(() => leadColumns, [])
+
     const memorizedData = useMemo(() => tableData, [tableData])
 
     // Fetch data on initial render or when leads have been updated

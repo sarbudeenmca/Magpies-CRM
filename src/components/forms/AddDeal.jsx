@@ -50,7 +50,7 @@ const AddDeal = () => {
                         </label>
                     </div>
                     <div className="form-fields">
-                        <select id="serviceType" name="serviceType" className="form-input peer" >
+                        <select id="serviceType" name="serviceType" className="form-select peer" >
                             <option value="">- Select -</option>
                             <option value="Web Design">Web Design</option>
                             <option value="Web App Development">Web App Development</option>
@@ -75,12 +75,6 @@ const AddDeal = () => {
                         </label>
                     </div>
                     <div className="form-fields">
-                        <input type="text" id="city" className="form-input peer" placeholder=" " />
-                        <label htmlFor="city" className="form-label">
-                            City
-                        </label>
-                    </div>
-                    <div className="form-fields">
                         <select id="dealStatus" name="dealStatus" className="form-select peer" >
                             <option value="">- Select -</option>
                             <option value="Hold On">Hold On</option>
@@ -92,7 +86,7 @@ const AddDeal = () => {
                             <option value="Lost">Lost</option>
                         </select>
                         <label htmlFor="dealStatus" className="form-label">
-                            Service Type
+                            Status
                         </label>
                     </div>
                     <div className="form-fields col-span-2">

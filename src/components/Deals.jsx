@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
-import ViewDeals from './views/ViewDeals'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import AddDeal from './forms/AddDeal'
 import SidebarControlContext from '../context/SidebarControlContext'
+import DataTable from './views/DataTable'
+import DataControls from './views/DataControls'
 
 const Deals = () => {
     const { isAddNewOpen, handleAddClick } = useContext(SidebarControlContext)
@@ -13,7 +14,9 @@ const Deals = () => {
                 <h1 className='main-title'>Deals</h1>
                 <button className='btn-add-new' onClick={handleAddClick}><FontAwesomeIcon icon={faPlus} /><span>Add New</span></button>
             </div>
-            <ViewDeals />
+
+            <DataControls />
+            <DataTable />
             <AddDeal />
             {isAddNewOpen && (
                 <div className='backdrop' onClick={handleAddClick}></div>
