@@ -6,13 +6,13 @@ import LeadDataContext from "../../context/SidebarControlContext"
 
 const MessageModal = () => {
 
-    const { handleAddLeadClick } = useContext(LeadDataContext)
+    const { handleAddClick } = useContext(LeadDataContext)
     const { isOpen, modalTitle, modalMessage, setIsOpen, messageType } = useContext(MessageModalDataContext)
 
     function closeModal() {
         setIsOpen(false)
         if (modalTitle !== 'Success') {
-            handleAddLeadClick();
+            handleAddClick();
         }
     }
 

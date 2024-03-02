@@ -37,13 +37,14 @@ export const DataControlsProvider = ({ children }) => {
                 setTableData(response.data.leads)
                 console.info('LEADS FETCHED')
                 setMemorizedColumns(leadColumns)
-            } else if (pathname === 'deals') {
+            } else if (pathname === '/deals') {
                 response = await axios.get(`/api/deals?limit=${dataLength}`)
                 setTableData(response.data.deals)
                 console.info('DEALS FETCHED')
                 setMemorizedColumns(dealColumns)
             }
             setDatasUpdated(false)
+            console.log(response)
         } catch (error) {
             console.error('Error fetching data:', error)
         }
