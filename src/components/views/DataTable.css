@@ -67,12 +67,19 @@ table.datatable input.check {
     @apply w-full;
 }
 
-.data-table-skeleton th,
-.data-table-skeleton .th {
-    @apply h-10 mb-2;
+.data-table-skeleton th {
+    @apply pb-2 pt-2 pl-3 pr-10 border-b border-darkd2;
 }
 
-.data-table-skeleton td,
+.data-table-skeleton td {
+    @apply pb-2 pt-2 pl-3 pr-5;
+}
+
+.data-table-skeleton .th {
+    @apply h-6 my-2 rounded-xl;
+}
+
+
 .data-table-skeleton .td {
-    @apply h-8 mb-1;
+    @apply h-4 my-2 rounded-xl;
 }
