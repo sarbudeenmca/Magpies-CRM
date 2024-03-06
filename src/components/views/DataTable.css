@@ -62,3 +62,17 @@ table.datatable td button.trash-icon {
 table.datatable input.check {
     @apply h-5 w-5 mt-2 border-0 bg-accent opacity-10;
 }
+
+.data-table-skeleton {
+    @apply w-full;
+}
+
+.data-table-skeleton th,
+.data-table-skeleton .th {
+    @apply h-10 mb-2;
+}
+
+.data-table-skeleton td,
+.data-table-skeleton .td {
+    @apply h-8 mb-1;
+}

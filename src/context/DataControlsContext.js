@@ -14,6 +14,7 @@ export const DataControlsProvider = ({ children }) => {
     // State for controlling the number of data rows displayed in the table
     const [dataLength, setDataLength] = useState(5)
     const [memorizedColumns, setMemorizedColumns] = useState([])
+    const [tableLoading, setTableLoading] = useState(false)
 
     // Function to handle changes in data length
     const handleDataLength = (e) => {
@@ -30,6 +31,7 @@ export const DataControlsProvider = ({ children }) => {
     // Function to fetch table data based on location
     const fetchTableData = useCallback(async () => {
         try {
+            setTableLoading(true)
             let response
             let pathname = location.pathname;
             if (pathname === '/leads') {
@@ -47,8 +49,10 @@ export const DataControlsProvider = ({ children }) => {
             console.log(response)
         } catch (error) {
             console.error('Error fetching data:', error)
+        } finally {
+            setTableLoading(false);
         }
-    }, [location.pathname, dataLength, setDatasUpdated])
+    }, [location.pathname, dataLength, setDatasUpdated, setTableLoading])
 
     // Memoized values for columns and data
 
@@ -86,7 +90,8 @@ export const DataControlsProvider = ({ children }) => {
                 getTableBodyProps,
                 headerGroups,
                 rows,
-                prepareRow
+                prepareRow,
+                tableLoading
             }}
         >
             {children}

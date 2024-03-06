@@ -6,6 +6,8 @@ import { useOutlet } from 'react-router-dom'
 import { MessageModalDataProvider } from '../context/MessageModalContext'
 import { DataControlsProvider } from '../context/DataControlsContext'
 import { SidebarControlProvider } from '../context/SidebarControlContext'
+import 'react-loading-skeleton/dist/skeleton.css'
+import { SkeletonTheme } from 'react-loading-skeleton'
 
 const Layout = () => {
 
@@ -28,9 +30,11 @@ const Layout = () => {
         <MessageModalDataProvider>
           <DataControlsProvider>
             <SidebarControlProvider>
-              <section className="outlet">
-                {React.cloneElement(outlet)}
-              </section>
+              <SkeletonTheme baseColor="#192239" highlightColor="#263356">
+                <section className="outlet">
+                  {React.cloneElement(outlet)}
+                </section>
+              </SkeletonTheme>
             </SidebarControlProvider>
           </DataControlsProvider>
         </MessageModalDataProvider>
