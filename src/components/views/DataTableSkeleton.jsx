@@ -17,14 +17,13 @@ const DataTableSkeleton = () => {
                 </tr>
             </thead>
             <tbody>
-                {Array.from({ length: rowCount }).map((_, index) => (
-                    <tr>
-                        <td><Skeleton className='td' /></td>
-                        <td><Skeleton className='td' /></td>
-                        <td><Skeleton className='td' /></td>
-                        <td><Skeleton className='td' /></td>
-                        <td><Skeleton className='td' /></td>
-                        <td><Skeleton className='td' /></td>
+                {Array.from({ length: rowCount }).map((_, rowIndex) => (
+                    <tr key={`row-${rowIndex}`}>
+                        {[...Array(6)].map((_, columnIndex) => (
+                            <td key={`td-${rowIndex}${columnIndex}`}>
+                                <Skeleton />
+                            </td>
+                        ))}
                     </tr>
                 ))}
             </tbody>

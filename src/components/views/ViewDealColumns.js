@@ -4,9 +4,9 @@ import { faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export const dealColumns = [
     {
-        header: 'Lead Id',
-        footer: 'lead_id',
-        accessor: 'lead_id',
+        header: 'Lead Name',
+        footer: 'Lead Name',
+        accessor: 'lead_name',
     },
     {
         header: 'Service Type',
