@@ -21,7 +21,7 @@ const DataTableSkeleton = () => {
                     <tr key={`row-${rowIndex}`}>
                         {[...Array(6)].map((_, columnIndex) => (
                             <td key={`td-${rowIndex}${columnIndex}`}>
-                                <Skeleton />
+                                <Skeleton className='td'/>
                             </td>
                         ))}
                     </tr>

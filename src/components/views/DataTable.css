@@ -1,5 +1,5 @@
 table.datatable {
-    @apply w-full table-auto border-separate border-spacing-0 pb-6 mb-14 border-b border-accentd4/70;
+    @apply w-full table-auto border-separate border-spacing-0 pb-6 mb-14 border-b border-accentd4/70 ;
 }
 
 table.datatable th {
@@ -68,18 +68,18 @@ table.datatable input.check {
 }
 
 .data-table-skeleton th {
-    @apply pb-2 pt-2 pl-3 pr-10 border-b border-darkd2;
+    @apply pb-2 pl-3 pr-20 border-b border-darkd2;
 }
 
 .data-table-skeleton td {
-    @apply pb-2 pt-2 pl-3 pr-5;
+    @apply pb-4 pt-3 pl-3 pr-12;
 }
 
 .data-table-skeleton .th {
-    @apply h-6 my-2 rounded-xl;
+    @apply h-6 mb-2 rounded-xl;
 }
 
 
 .data-table-skeleton .td {
-    @apply h-4 my-2 rounded-xl;
+    @apply h-4 rounded-xl;
 }

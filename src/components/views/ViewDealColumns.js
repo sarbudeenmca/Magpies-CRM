@@ -16,7 +16,13 @@ export const dealColumns = [
     {
         header: 'Estimated Amount',
         footer: 'Estimated Amount',
-        accessor: 'estimated_amount'
+        accessor: 'estimated_price',
+        Cell: ({ row }) => (
+            <div className='text-right pr-16'>
+                {row.original.estimated_price}
+            </div>
+        )
+
     },
     {
         header: 'Kick Off Date',
