@@ -1,35 +1,12 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
-import axios from '../../api/axios'
 import SidebarControlContext from '../../context/SidebarControlContext'
+import LeadNameSelect from '../formElements/LeadNameSelect'
 
 const AddDeal = () => {
 
     const { isAddNewOpen, handleAddClick } = useContext(SidebarControlContext)
-    const [selectedLead, setSelectedLead] = useState('');
-
-    const handleChangeLeadName = (e) => {
-        setSelectedLead(e.target.value)
-    }
-
-    const [leadNames, setLeadName] = useState([])
-    //Lead Name fetching
-
-    useEffect(() => {
-        const fetchLeadNames = async () => {
-            try {
-                const response = await axios.get(`/api/leadnames`)
-                setLeadName(response.data.leadNames)
-                console.info('Lead Names Rendered for Select');
-            } catch (error) {
-                console.error('Error fetching lead names:', error);
-                return [];
-            }
-        }
-        fetchLeadNames();
-    }, [])
-
     return (
         <>
             <aside className={`form ${isAddNewOpen ? '' : 'translate-x-full'}`}>
@@ -39,12 +16,7 @@ const AddDeal = () => {
                 </div>
                 <form action="#" className='form-container'>
                     <div className="form-fields">
-                        <select id="leadName" name="leadName" className="form-select peer" value={selectedLead} onChange={handleChangeLeadName}>
-                            <option value="">- Select -</option>
-                            {leadNames.map(leadName => (
-                                <option key={leadName} value={leadName}>{leadName}</option>
-                            ))}
-                        </select>
+                        <LeadNameSelect />
                         <label htmlFor="leadName" className="form-label">
                             Lead Name
                         </label>
