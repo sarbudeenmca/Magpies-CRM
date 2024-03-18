@@ -7,8 +7,7 @@ import DataControls from './views/DataControls'
 import DataTable from './views/DataTable'
 
 const Leads = () => {
-  const { isAddNewOpen, handleAddClick } = useContext(SidebarControlContext)
-
+  const { handleAddClick } = useContext(SidebarControlContext)
   return (
     <>
       <div className='title-header'>
@@ -18,9 +17,6 @@ const Leads = () => {
       <DataControls />
       <DataTable />
       <AddLead />
-      {isAddNewOpen && (
-        <div className="form-backdrop" onClick={handleAddClick} />
-      )}
     </>
   )
 }

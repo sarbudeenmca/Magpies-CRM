@@ -1,13 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Topbar from './Topbar'
 import Sidebar from './Sidebar'
 import './Layout.css'
 import { useOutlet } from 'react-router-dom'
-import { MessageModalDataProvider } from '../context/MessageModalContext'
-import { DataControlsProvider } from '../context/DataControlsContext'
-import { SidebarControlProvider } from '../context/SidebarControlContext'
+import SidebarControlContext from '../context/SidebarControlContext'
 import 'react-loading-skeleton/dist/skeleton.css'
-import { SkeletonTheme } from 'react-loading-skeleton'
 
 const Layout = () => {
 
@@ -18,26 +15,23 @@ const Layout = () => {
     setSidebarOpen(!isSidebarOpen)
   }
 
+  const { isAddNewOpen, handleAddClick } = useContext(SidebarControlContext)
+
   return (
     <section className='layout'>
-      <section className={`sidebar ${isSidebarOpen ? 'translate-x-0 w-1/6' : '-translate-x-full w-0'}`}>
+      <section className={`sidebar ${isSidebarOpen ? 'translate-x-0 w-1/6 opacity-1' : '-translate-x-full w-0 opacity-0'}`}>
         <Sidebar />
       </section>
       <section className={`rightside ${isSidebarOpen ? 'w-5/6' : 'w-full'}`}>
         <section className='topbar'>
           <Topbar toggleSidebar={toggleSidebar} />
         </section>
-        <MessageModalDataProvider>
-          <DataControlsProvider>
-            <SidebarControlProvider>
-              <SkeletonTheme baseColor="#192239" highlightColor="#263356">
-                <section className="outlet">
-                  {React.cloneElement(outlet)}
-                </section>
-              </SkeletonTheme>
-            </SidebarControlProvider>
-          </DataControlsProvider>
-        </MessageModalDataProvider>
+        <section className="outlet">
+          {React.cloneElement(outlet)}
+        </section>
+        {isAddNewOpen && (
+          <div className='form-backdrop' onClick={handleAddClick}></div>
+        )}
       </section>
     </section>
   )

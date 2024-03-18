@@ -1,6 +1,6 @@
 /*===== Layout =====*/
 .layout {
-    @apply flex flex-row;
+    @apply flex flex-row w-full;
 }
 
 
@@ -126,7 +126,7 @@ select.data-length option {
 }
 
 .textarea.form-label {
-    @apply peer-placeholder-shown:-translate-y-[15%] peer-placeholder-shown:top-[15%] peer-focus:top-2 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/2 ;
+    @apply peer-placeholder-shown:-translate-y-[15%] peer-placeholder-shown:top-[15%] peer-focus:top-2 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/2;
 }
 
 .submit-btn {

@@ -7,7 +7,7 @@ import DataTable from './views/DataTable'
 import DataControls from './views/DataControls'
 
 const Deals = () => {
-    const { isAddNewOpen, handleAddClick } = useContext(SidebarControlContext)
+    const { handleAddClick } = useContext(SidebarControlContext)
     return (
         <>
             <div className='title-header'>
@@ -18,9 +18,6 @@ const Deals = () => {
             <DataControls />
             <DataTable />
             <AddDeal />
-            {isAddNewOpen && (
-                <div className='backdrop' onClick={handleAddClick}></div>
-            )}
         </>
     )
 }
