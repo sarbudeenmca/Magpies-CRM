@@ -100,8 +100,13 @@ aside.form {
 }
 
 .form-select {
-    @apply w-full min-h-10 font-light rounded text-[12px] px-4 bg-transparent border-accentd4 border text-white/80 outline-none focus:border focus:border-primary placeholder:font-light focus:outline-none focus:ring-0;
+    @apply w-full min-h-10 font-light rounded text-[12px] px-4 bg-transparent !border-accentd4 border text-white/80 outline-none focus:border focus:border-primary placeholder:font-light focus:outline-none focus:ring-0;
 }
+
+.react-form-select {
+    @apply w-full min-h-10 font-light rounded text-[12px] px-0 bg-transparent !border-accentd4 border text-white/80 outline-none focus:border focus:border-primary placeholder:font-light focus:outline-none focus:ring-0;
+}
+
 
 .data-length {
     @apply !w-28 !float-end !mr-8;
