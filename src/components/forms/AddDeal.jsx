@@ -63,7 +63,7 @@ const AddDeal = () => {
                     </div>
                     <div className="form-fields col-span-2">
                         <textarea rows="4" id="followupDescription" className="form-input peer" placeholder=" " ></textarea>
-                        <label htmlFor="followupDescription" className="form-label">
+                        <label htmlFor="followupDescription" className="form-label textarea">
                             Followup Description
                         </label>
                     </div>
